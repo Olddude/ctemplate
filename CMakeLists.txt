@@ -8,14 +8,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS "-Ofast") #optimize binary code - comment that in for debugging
 
-# Find the curl library
-find_package(CURL REQUIRED)
-
 # Add the include directory
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CURL_INCLUDE_DIRS}
-)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c)
 file(GLOB_RECURSE HDR_FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
@@ -27,10 +21,7 @@ add_library(ctemplate ${SRC_FILES} ${HDR_FILES})
 add_executable(ctemplate-cli ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c)
 
 # Link libraries to the executable
-target_link_libraries(ctemplate-cli
-    ctemplate
-    ${CURL_LIBRARIES}
-)
+target_link_libraries(ctemplate-cli ctemplate)
 
 # Add test executable
 add_executable(ctemplate-tests ${CMAKE_CURRENT_SOURCE_DIR}/tests/main.c)
