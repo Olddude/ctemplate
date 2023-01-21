@@ -21,7 +21,6 @@ void init_queue(int size)
 
 void enqueue(char *line)
 {
-
     pthread_mutex_lock(&queue_mutex);
     while (queue.count == queue.size)
     {
