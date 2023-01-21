@@ -5,6 +5,20 @@
 #include "main.h"
 #include "queue.h"
 
+int main(int argc, char *argv[])
+{
+    int valid = validate(argc, argv);
+    clock_t start_time = start();
+    char *file_path = argv[1];
+    FILE *csv_file = read_csv(file_path);
+    print_columns(csv_file);
+    int num_threads = atoi(argv[2]);
+    int queue_size = atoi(argv[3]);
+    queue_from_csv(csv_file, num_threads, queue_size);
+    measure_elapsed_time(start_time);
+    return 0;
+}
+
 int validate(int argc, char* argv[]) {
     if (argc < 4)
     {
@@ -35,23 +49,19 @@ void measure_elapsed_time(clock_t start_time) {
     }
 }
 
-int main(int argc, char *argv[])
-{
-    int valid = validate(argc, argv);
-    clock_t start_time = start();
-    FILE *csv_file = fopen(argv[1], "r");
+FILE *read_csv(char *file_path) {
+    FILE *csv_file = fopen(file_path, "r");
     if (!csv_file)
     {
         perror("fopen");
-        return 2;
+        return NULL;
     }
-    char line[BUFFER_SIZE];
-    if (fgets(line, sizeof(line), csv_file)) {
-        printf("columns are: %s", line);
+    return csv_file;
+}
+
+void print_columns(FILE *csv_file) {
+    char columns[BUFFER_SIZE];
+    if (fgets(columns, sizeof(columns), csv_file)) {
+        printf("columns are: %s", columns);
     }
-    int num_threads = atoi(argv[2]);
-    int queue_size = atoi(argv[3]);
-    queue_from_csv(csv_file, num_threads, queue_size);
-    measure_elapsed_time(start_time);
-    return 0;
 }
