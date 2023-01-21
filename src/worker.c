@@ -77,7 +77,7 @@ void read_csv_file(FILE *file, int num_threads, int queue_size)
         }
     }
 
-    char line[1024];
+    char line[255];
     while (fgets(line, sizeof(line), file))
     {
         enqueue(strdup(line));
