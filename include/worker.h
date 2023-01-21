@@ -1,14 +1,14 @@
 #ifndef WORKER_H
 #define WORKER_H
 
-struct line_queue
+typedef struct _line_queue
 {
     char **lines;
     int head;
     int tail;
     int size;
     int count;
-};
+} line_queue;
 
 void init_queue(int size);
 

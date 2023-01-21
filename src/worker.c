@@ -7,7 +7,7 @@
 
 pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t queue_cond = PTHREAD_COND_INITIALIZER;
-struct line_queue queue;
+line_queue queue;
 int finished = 0;
 
 void init_queue(int size)
