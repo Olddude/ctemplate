@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 #include <csv_reader.h>
 
 void* worker_thread_func(void* arg) {
-    char* line = (char*) arg;
+    char* line = strdup((char*)arg);
     printf("Thread processing: %s", line);
     // Perform other operations with the line here
+    free(line);
     return NULL;
 }
 
