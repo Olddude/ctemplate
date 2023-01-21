@@ -5,7 +5,7 @@ project(ctemplate)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # Set other compiler flags
-set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS "-Ofast")
 
 # Add the include directory
