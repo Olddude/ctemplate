@@ -5,5 +5,5 @@ tree .
 mkdir build
 cd build && cmake .. && make
 cd ..
-./bin/ctemplate-cli docker-compose.yml
+./bin/ctemplate-cli data.csv
 
