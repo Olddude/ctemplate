@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "worker.h"
+#include "queue.h"
 
 int main(int argc, char *argv[])
 {
@@ -22,7 +22,9 @@ int main(int argc, char *argv[])
     if (fgets(line, sizeof(line), csv_file)) {
         printf("columns are: %s", line);
     }
-    read_csv_file(csv_file, atoi(argv[2]), atoi(argv[3]));
+    int num_threads = atoi(argv[2]);
+    int queue_size = atoi(argv[3]);
+    queue_from_csv(csv_file, num_threads, queue_size);
     clock_t end_time = clock();
     double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
     if (elapsed_time < 60) {

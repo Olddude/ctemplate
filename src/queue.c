@@ -1,13 +1,12 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
 
-#include "worker.h"
+#include "queue.h"
 
 pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t queue_cond = PTHREAD_COND_INITIALIZER;
-line_queue queue;
+QUEUE queue;
 int finished = 0;
 
 void init_queue(int size)
@@ -52,7 +51,7 @@ char *dequeue()
     return line;
 }
 
-void *worker_thread_func(void *arg)
+void *queue_thread(void *arg)
 {
     while (1 == 1)
     {
@@ -64,13 +63,13 @@ void *worker_thread_func(void *arg)
     return NULL;
 }
 
-void read_csv_file(FILE *file, int num_threads, int queue_size)
+void queue_from_csv(FILE *file, int num_threads, int queue_size)
 {
     init_queue(queue_size);
     pthread_t threads[num_threads];
     for (int i = 0; i < num_threads; i++)
     {
-        if (pthread_create(&threads[i], NULL, worker_thread_func, NULL) != 0)
+        if (pthread_create(&threads[i], NULL, queue_thread, NULL) != 0)
         {
             perror("pthread_create");
             break;

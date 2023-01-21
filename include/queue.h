@@ -1,14 +1,16 @@
 #ifndef WORKER_H
 #define WORKER_H
 
-typedef struct _line_queue
+#include <stdio.h>
+
+typedef struct _QUEUE
 {
     char **lines;
     int head;
     int tail;
     int size;
     int count;
-} line_queue;
+} QUEUE;
 
 void init_queue(int size);
 
@@ -16,8 +18,8 @@ void enqueue(char *line);
 
 char *dequeue();
 
-void *worker_thread_func(void *arg);
+void *queue_thread(void *thread_arg);
 
-void read_csv_file(FILE *file, int num_threads, int queue_size);
+void queue_from_csv(FILE *file, int num_threads, int queue_size);
 
 #endif
