@@ -6,7 +6,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # Set other compiler flags
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_FLAGS "-Ofast")
+# set(CMAKE_C_FLAGS "-Ofast") #optimize binary code - comment that in for debugging
 
 # Add the include directory
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
