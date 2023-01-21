@@ -5,4 +5,4 @@ tree .
 mkdir build
 cd build && cmake .. && make
 cd ..
-./bin/ctemplate-cli data.csv 8 8
+./bin/ctemplate-cli large-data.csv 8 8
