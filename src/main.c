@@ -1,21 +1,14 @@
 #include <stdio.h>
-#include <string.h>
-#include <csv_reader.h>
+#include <stdlib.h>
+#include "worker.h"
 
-void* worker_thread_func(void* arg) {
-    char* line = strdup((char*)arg);
-    printf("Thread processing: %s", line);
-    // Perform other operations with the line here
-    free(line);
-    return NULL;
-}
-
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        printf("Usage: %s <csv file>\n", argv[0]);
+int main(int argc, char *argv[])
+{
+    if (argc < 4)
+    {
+        printf("Usage %s <csv file path> <num of threads> <queue length>", argv[0]);
         return 1;
     }
-    read_csv_file(argv[1], worker_thread_func);
+    read_csv_file(argv[1], atoi(argv[2]), atoi(argv[3]));
     return 0;
 }
-
