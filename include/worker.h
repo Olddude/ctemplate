@@ -18,6 +18,6 @@ char *dequeue();
 
 void *worker_thread_func(void *arg);
 
-void read_csv_file(const char *file_path, int num_threads, int queue_size);
+void read_csv_file(FILE *file, int num_threads, int queue_size);
 
 #endif

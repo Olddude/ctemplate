@@ -8,6 +8,7 @@
 pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t queue_cond = PTHREAD_COND_INITIALIZER;
 struct line_queue queue;
+int finished = 0;
 
 void init_queue(int size)
 {
@@ -36,9 +37,13 @@ void enqueue(char *line)
 char *dequeue()
 {
     pthread_mutex_lock(&queue_mutex);
-    while (queue.count == 0)
+    while (queue.count == 0 && !finished)
     {
         pthread_cond_wait(&queue_cond, &queue_mutex);
+    }
+    if(queue.count == 0 && finished){
+        pthread_mutex_unlock(&queue_mutex);
+        pthread_exit(NULL);
     }
     char *line = queue.lines[queue.head];
     queue.head = (queue.head + 1) % queue.size;
@@ -60,15 +65,8 @@ void *worker_thread_func(void *arg)
     return NULL;
 }
 
-void read_csv_file(const char *file_path, int num_threads, int queue_size)
+void read_csv_file(FILE *file, int num_threads, int queue_size)
 {
-    FILE *file = fopen(file_path, "r");
-    if (!file)
-    {
-        perror("fopen");
-        return;
-    }
-
     init_queue(queue_size);
     pthread_t threads[num_threads];
     for (int i = 0; i < num_threads; i++)
@@ -85,7 +83,8 @@ void read_csv_file(const char *file_path, int num_threads, int queue_size)
     {
         enqueue(strdup(line));
     }
-
+    finished = 1;
+    pthread_cond_broadcast(&queue_cond);
     fclose(file);
 
     for (int i = 0; i < num_threads; i++)
