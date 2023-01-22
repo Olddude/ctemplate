@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-typedef struct _QUEUE
+typedef struct
 {
     char **lines;
     int head;
