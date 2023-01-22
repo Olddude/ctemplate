@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug (LLDB)",
+            "name": "Debug CLI (LLDB)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bin/ctemplate-cli",
@@ -11,6 +11,19 @@
                 "8",
                 "8"
             ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "cmake: build -DCMAKE_BUILD_TYPE=Debug"
+        },
+        {
+            "name": "Debug TESTS (LLDB)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/ctemplate-tests",
+            "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
