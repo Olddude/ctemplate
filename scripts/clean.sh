@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-rm -rf build bin
+rm -rf build bin lib
