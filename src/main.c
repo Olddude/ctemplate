@@ -2,12 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "main.h"
-#include "common.h"
-#include "queue.h"
-#include "benchmark.h"
-#include "csv.h"
-#include "validator.h"
+#include "queue/queue.h"
+#include "benchmark/benchmark.h"
+#include "csv/csv.h"
+#include "validator/validator.h"
 
 int main(int argc, char *argv[])
 {
