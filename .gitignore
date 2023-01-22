@@ -57,6 +57,9 @@ build/
 # ignore binary files
 bin/
 
+# ignore library files
+lib/
+
 # ignore CMake files
 CMakeCache.txt
 CMakeFiles/
@@ -74,12 +77,11 @@ Makefile
 *.vcxproj.filters
 *.vcxproj.user
 
-# ignore Visual Studio Code files
-.vscode/
-*.code-workspace
-
 # trash
 __TRASH/
 
 # testing output
 Testing/
+
+# data
+super-large-data.csv
