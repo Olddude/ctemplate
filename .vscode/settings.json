@@ -1,0 +1,10 @@
+{
+    "cmake.debugConfig": {
+        "cwd": "${workspaceRoot}",
+        "args": [
+            "./assets/data.csv",
+            "8",
+            "8"
+        ]
+    }
+}
