@@ -6,8 +6,6 @@
 #include "list.h"
 #include "tests.h"
 
-jmp_buf buf;
-
 bool list_test() {
     LIST list;
     bool test_result = false;
@@ -23,7 +21,7 @@ bool list_test() {
     return test_result;
 }
 
-void exec_tests() {
+void exec_tests(jmp_buf buf) {
     bool result = false;
     result = list_test();
     // add other tests here
@@ -33,8 +31,9 @@ void exec_tests() {
 }
 
 int main(int argc, char *argv[]) {
+    jmp_buf buf;
     if (setjmp(buf) == 0) {
-        exec_tests();
+        exec_tests(buf);
         printf("Test was successful\n");
         return 0;
     } else {
