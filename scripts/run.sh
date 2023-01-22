@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-./bin/ctemplate-cli ./assets/data.csv 8 8
+./bin/ctemplate ./assets/data.csv 8 8
