@@ -29,8 +29,5 @@ add_executable(tests
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.h
 )
 
-# # Add a test - unstable yet
-# add_test(list_test ctemplate-tests)
-
 # Link libraries to the executable
 target_link_libraries(tests ctemplate)
