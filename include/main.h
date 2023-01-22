@@ -7,10 +7,6 @@
 
 int validate(int argc, char* argv[]);
 
-clock_t start();
-
-void measure_elapsed_time(clock_t start_time);
-
 FILE *read_csv(char *file_path);
 
 void print_columns(FILE *csv_file);
