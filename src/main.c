@@ -10,6 +10,9 @@
 int main(int argc, char *argv[])
 {
     int valid = validate(argc, argv);
+    if (valid != 0) {
+        return 1;
+    }
     clock_t start_time = start();
     char *file_path = argv[1];
     FILE *csv_file = read_csv(file_path);
