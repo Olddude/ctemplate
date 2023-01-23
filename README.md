@@ -10,6 +10,7 @@ apk add binutils
 apk add gcc  
 apk add libc-dev  
 apk add g++  
+apk add libcunit1-dev  
 
 ## clean
 ```sh

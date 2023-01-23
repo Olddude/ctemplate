@@ -7,13 +7,22 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
+            "name": "Debug App",
             "program": "./bin/ctemplate",
             "args": [
                 "./assets/data.csv",
                 "8",
                 "8"
             ],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Make Build Debug"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug Tests",
+            "program": "./bin/ctemplate-tests",
+            "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Make Build Debug"
         }
