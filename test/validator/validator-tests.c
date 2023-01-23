@@ -1,12 +1,12 @@
 #include <assert.h>
 
-#include "validator/validator.h"
-#include "validator-test.h"
+#include "validator.h"
+#include "validator-tests.h"
 
 void validate_test(void) {
     // arrange
     int argc = 4;
-    char *argv = { "foo", "bar", "foo2", "bar2" };
+    char *argv[] = { "foo", "bar", "foo2", "bar2" };
 
     // act
     int result = validate(argc, argv);
