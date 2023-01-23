@@ -14,7 +14,8 @@
                 "8",
                 "8"
             ],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Make Build Debug"
         }
     ]
 }

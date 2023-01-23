@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Clean CMake Files",
+            "command": "./scripts/clean.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": []
+        },
+        {
+            "type": "shell",
+            "label": "Create Build Directory",
+            "command": "mkdir build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [],
+            "dependsOn": ["Clean CMake Files"]
+        },
+        {
+            "type": "shell",
+            "label": "CMake Build Debug",
+            "command": "cmake",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "args": [
+                "..",
+                "-DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "dependsOn": ["Create Build Directory"]
+        },
+        {
+            "type": "shell",
+            "label": "Make Build Debug",
+            "command": "make",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "args": [],
+            "dependsOn": ["CMake Build Debug"]
+        }
+    ]
+}
