@@ -1,6 +1,3 @@
 {
-    "files.associations": {
-        "validator.h": "c",
-        "validator-tests.h": "c"
-    }
+
 }

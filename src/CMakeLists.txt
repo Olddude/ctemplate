@@ -21,3 +21,6 @@ target_link_libraries(ctemplate
     queue
     validator
 )
+
+file(GLOB_RECURSE HRD_FILES **/*.h)
+file(COPY ${HRD_FILES} DESTINATION ${CMAKE_SOURCE_DIR}/include)

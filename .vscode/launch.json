@@ -21,7 +21,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug Tests",
-            "program": "./bin/ctemplate-tests",
+            "program": "./bin/test/ctemplate-tests",
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Make Build Debug"

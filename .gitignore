@@ -60,6 +60,9 @@ bin/
 # ignore library files
 lib/
 
+# ignore include files
+include/
+
 # ignore CMake files
 CMakeCache.txt
 CMakeFiles/

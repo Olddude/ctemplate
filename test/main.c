@@ -1,7 +1,7 @@
 #include "validator/validator-tests.h"
 #include "list/list-tests.h"
 
-int main() {
+int main(void) {
     void (*tests[])(void) = {
         validate_test,
         init_list_test
