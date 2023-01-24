@@ -1,10 +1,12 @@
 #include "validator/validator-tests.h"
 #include "list/list-tests.h"
+#include "filesys/filesys-tests.h"
 
 int main(void) {
     void (*tests[])(void) = {
         validate_test,
-        init_list_test
+        init_list_test,
+        write_text_test
     };
     int test_count = sizeof(tests) / sizeof(void (*)(void));
     for(int i = 0; i < test_count; i++) {
@@ -12,3 +14,4 @@ int main(void) {
     }
     return 0;
 }
+

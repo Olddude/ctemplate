@@ -5,10 +5,12 @@ add_executable(ctemplate-tests main.c)
 
 add_subdirectory(validator)
 add_subdirectory(list)
+add_subdirectory(filesys)
 
 target_link_libraries(ctemplate-tests
     validator-tests
     list-tests
+    filesys-tests
 )
 
 file(GLOB_RECURSE HRD_FILES **/*.h)

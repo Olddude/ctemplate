@@ -12,6 +12,7 @@ add_subdirectory(csv)
 add_subdirectory(list)
 add_subdirectory(queue)
 add_subdirectory(validator)
+add_subdirectory(filesys)
 
 # Add libraries to executable
 target_link_libraries(ctemplate
@@ -20,6 +21,7 @@ target_link_libraries(ctemplate
     list
     queue
     validator
+    filesys
 )
 
 file(GLOB_RECURSE HRD_FILES **/*.h)

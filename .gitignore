@@ -88,3 +88,7 @@ Testing/
 
 # data
 super-large-data.csv
+
+# logs
+**/*.log
+
