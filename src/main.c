@@ -9,8 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-    int valid = validate(argc, argv);
-    if (valid != 0) {
+    if (validate(argc, argv) != 0) {
         return 1;
     }
     clock_t start_time = start();

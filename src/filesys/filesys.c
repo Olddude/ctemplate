@@ -1,18 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "filesys.h"
 
-int write_text(const char* dest_path, char* text) {
+int write_text(const char* dest_path, const char* text) {
     FILE *dest = fopen(dest_path, "w");
     if (dest == NULL) {
-        perror("dest is null");
+        printf("Error opening file!\n");
         return 1;
     }
-    char buffer[BUFFER_SIZE];
-    strcpy(buffer, text);
-    fwrite(buffer, sizeof(char), sizeof(buffer), dest);
+    fwrite(text, sizeof(char), strlen(text), dest);
     fclose(dest);
     return 0;
 }
-
