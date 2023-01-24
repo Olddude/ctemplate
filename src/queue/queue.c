@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
+#include <uuid/uuid.h>
 
 #include "queue.h"
+#include "../filesys/filesys.h"
 
 pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t queue_cond = PTHREAD_COND_INITIALIZER;
@@ -51,12 +53,36 @@ char *dequeue()
     return line;
 }
 
+void replace_comma_with_dot(char* str) {
+    char* comma;
+    while ((comma = strchr(str, ',')) != NULL) {
+        *comma = '.';
+    }
+}
+
+void replace_linebreak_with_null(char* str) {
+    char* linebreak;
+    while ((linebreak = strchr(str, '\n')) != NULL) {
+        *linebreak = '\0';
+    }
+}
+
 void *queue_thread(void *arg)
 {
     while (1 == 1)
     {
         char *line = dequeue();
         printf("Thread processing: %s", line);
+        char file_name[100];
+        strcpy(file_name, line);
+        replace_comma_with_dot(file_name);
+        replace_linebreak_with_null(file_name);
+        uuid_t guid;
+        uuid_generate(guid);
+        char guid_string[37];
+        uuid_unparse(guid, guid_string);
+        sprintf(file_name, "./logs/%s.log", guid_string);
+        write_text(file_name, line);
         // Perform other operations with the line here
         free(line);
     }
