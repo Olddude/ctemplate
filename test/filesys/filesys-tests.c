@@ -5,7 +5,7 @@
 
 void write_text_test(void) {
     // arrange
-    const char* dest_path = "write_text_test.log";
+    const char* dest_path = "./logs/test/filesys/write_text_test.log";
     const char* text = "write_text_test";
 
     // act
