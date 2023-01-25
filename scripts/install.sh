@@ -6,6 +6,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 echo "linux-gnu"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 echo "Mac OSX"
+brew update
+
+brew upgrade
+
+brew install \
+    ossp-uuid
 elif [[ "$OSTYPE" == "cygwin" ]]; then
 echo "POSIX compatibility layer and Linux environment emulation for Windows"
 elif [[ "$OSTYPE" == "msys" ]]; then
@@ -29,12 +35,11 @@ apk add \
     g++ \
     cmake \
     make \
-    binutils \
-    curl
+    binutils
 
 # add libraries
 apk add \
     libc-dev \
-    libcurl \
+    curl-dev \
     libuuid
 fi
