@@ -1,7 +1,6 @@
 #include <assert.h>
 
 #include "http.h"
-#include "http-tests.h"
 
 void post_request_json_test(void) {
     // arrange
@@ -16,4 +15,15 @@ void post_request_json_test(void) {
 
     // assert
     assert(result == 0 && "invalid result");
+}
+
+int main(int argc, char *argv[]) {
+    void (*tests[])(void) = {
+        post_request_json_test
+    };
+    int test_count = sizeof(tests) / sizeof(void (*)(void));
+    for(int i = 0; i < test_count; i++) {
+        tests[i]();
+    }
+    return 0;
 }
