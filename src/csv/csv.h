@@ -5,7 +5,7 @@
 
 #define BUFFER_SIZE 16384
 
-FILE *read_csv(char *file_path);
+FILE *read_csv(const char *file_path);
 
 void print_columns(FILE *csv_file);
 

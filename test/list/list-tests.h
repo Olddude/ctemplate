@@ -1,5 +1,5 @@
-#ifndef LISTS_TESTS_H
-#define LISTS_TESTS_H
+#ifndef LIST_TESTS_H
+#define LIST_TESTS_H
 
 void init_list_test(void);
 

@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 
-rm -rf build bin lib include
+rm -rf \
+build \
+bin \
+include \
+lib

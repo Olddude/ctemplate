@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
-tree .
+tree . -I \
+bin \
+build \
+include \
+lib
+
 mkdir build
-cd build && cmake .. && make
+cd build
+cmake ..
+make

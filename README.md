@@ -1,27 +1,21 @@
 # ctemplate
 C Language Project Template with CMake
-
-## ish dependencies
-
-apk add cmake  
-apk add make  
-apk add clang  
-apk add binutils  
-apk add gcc  
-apk add libc-dev  
-apk add g++  
-apk add libcunit1-dev  
-
 ## clean
 ```sh
 ./scripts/clean.sh
 ```
-
+## install
+```sh
+./scripts/install.sh
+```
 ## build
 ```sh
 ./scripts/build.sh
 ```
-
+## test
+```sh
+./scripts/test.sh
+```
 ## run
 ```sh
 ./scripts/run.sh

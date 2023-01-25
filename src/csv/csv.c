@@ -1,6 +1,6 @@
 #include "csv.h"
 
-FILE *read_csv(char *file_path) {
+FILE *read_csv(const char *file_path) {
     FILE *csv_file = fopen(file_path, "r");
     if (!csv_file)
     {
