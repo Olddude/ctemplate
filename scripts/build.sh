@@ -8,5 +8,5 @@ lib
 
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_C_FLAGS=-Ofast ..
 make

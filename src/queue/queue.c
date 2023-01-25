@@ -4,6 +4,7 @@
 #include <uuid/uuid.h>
 
 #include "queue.h"
+#include "../http/http.h"
 #include "../filesys/filesys.h"
 
 pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
